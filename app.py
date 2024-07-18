@@ -17,7 +17,7 @@ db_config = {
 
 # Function to extract data using Selenium
 def extract_entities(url):
-    driver = webdriver.Chrome()  # Ensure the chromedriver is in your PATH
+    driver = webdriver.Chrome()  
     driver.get(url)
 
     # Example XPaths, modify these based on the actual structure of the target page
@@ -40,7 +40,7 @@ def extract_entities(url):
         'url': url
     }
 
-# Save entities to the MySQL database
+#  entities to the MySQL database
 def save_entities_to_db(entities):
     conn = mysql.connector.connect(**db_config)
     cursor = conn.cursor()
@@ -60,7 +60,7 @@ def save_entities_to_db(entities):
 def home():
     return 'Flask app is running!'
 
-# GET route to save entities
+# save entities
 @app.route('/api/save-entity', methods=['GET'])
 def save_entity():
     url = request.args.get('url')
@@ -72,7 +72,7 @@ def save_entity():
 
     return jsonify({'message': 'Entities saved successfully'})
 
-# Get entities from the MySQL database
+# entities from the MySQL database
 def get_entities_from_db(url):
     conn = mysql.connector.connect(**db_config)
     cursor = conn.cursor(dictionary=True)
@@ -88,7 +88,7 @@ def get_entities_from_db(url):
 
     return entities
 
-# GET route to retrieve entities
+# route to retrieve entities
 @app.route('/api/get-entity', methods=['GET'])
 def get_entity():
     url = request.args.get('url')
