@@ -1,0 +1,14 @@
+CREATE DATABASE entities_db;
+
+USE entities_db;
+
+CREATE TABLE EntitiesMaster (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    artist_name VARCHAR(255),
+    program_name VARCHAR(255),
+    artist_role VARCHAR(255),
+    date VARCHAR(255),
+    time VARCHAR(255),
+    auditorium VARCHAR(255),
+    url VARCHAR(255)
+);
